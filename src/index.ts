@@ -25,9 +25,9 @@ const app = express();
 const prisma = new PrismaClient();  // Inicializando el cliente de Prisma
 
 app.use(cors({
-  origin: 'http://localhost:5173',  // Solo permitir solicitudes desde este origen
+  origin: '*',  // Permitir solicitudes desde cualquier origen
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'], // Agrega los encabezados que deseas permitir
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 // Middleware para parsear el cuerpo de las peticiones como JSON
@@ -778,11 +778,9 @@ function cors(options: {
   allowedHeaders: string[];
 }): express.RequestHandler {
   return (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', options.origin);
+    res.header('Access-Control-Allow-Origin', '*'); // Permitir cualquier origen
     res.header('Access-Control-Allow-Methods', options.methods.join(','));
     res.header('Access-Control-Allow-Headers', options.allowedHeaders.join(','));
-    // Permitir credenciales si es necesario:
-    // res.header('Access-Control-Allow-Credentials', 'true');
     if (req.method === 'OPTIONS') {
       return res.sendStatus(204);
     }
