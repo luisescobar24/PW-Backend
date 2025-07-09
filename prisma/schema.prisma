@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id             Int            @id @default(autoincrement())
+  correo         String         @unique @db.VarChar(100)
+  password       String         @db.VarChar(255)
+  nombre         String         @db.VarChar(100)
+  token          String?        @db.VarChar(255)
+  estado         Boolean
+  rol            String         @default("USER") @db.VarChar(20)
+  calificaciones Calificacion[]
+  ventas         Venta[]
+}
+
+model Plataforma {
+  id     Int     @id @default(autoincrement())
+  nombre String  @db.VarChar(100)
+  juegos Juego[] @relation("JuegoPlataforma")
+}
+
+model Categoria {
+  id     Int     @id @default(autoincrement())
+  nombre String  @db.VarChar(100)
+  juegos Juego[]
+}
+
+model Juego {
+  id             Int            @id @default(autoincrement())
+  nombre         String         @db.VarChar(100)
+  precio         Decimal        @db.Decimal(10, 2)
+  estaOferta     Boolean
+  estado         Boolean
+  categoriaId    Int
+  videoUrl       String?        @db.VarChar(255)
+  descripcion    String?        @db.VarChar(255)  // New description field
+  calificaciones Calificacion[] 
+  imagenes       Imagen[]       @relation("JuegoImagenes")
+  categoria      Categoria      @relation(fields: [categoriaId], references: [id])
+  ventas         Venta[] 
+  plataformas    Plataforma[]   @relation("JuegoPlataforma")
+}
+
+model Imagen {
+  id          Int    @id @default(autoincrement())
+  juegoId     Int
+  url         String
+  descripcion String
+  juego       Juego  @relation("JuegoImagenes", fields: [juegoId], references: [id])
+}
+
+model Noticia {
+  id     Int     @id @default(autoincrement())
+  titulo String  @db.VarChar(200)
+  texto  String
+  activo Boolean
+}
+
+model Venta {
+  id          Int      @id @default(autoincrement())
+  fecha       DateTime @db.Date
+  usuarioId   Int?
+  juegoId     Int?
+  codigo      String   @db.VarChar(100)
+  montoPagado Decimal  @db.Decimal(10, 2)
+  juego       Juego?   @relation(fields: [juegoId], references: [id])
+  usuario     Usuario? @relation(fields: [usuarioId], references: [id])
+}
+
+model Calificacion {
+  id         Int      @id @default(autoincrement())
+  valoracion Int
+  comentario String?
+  juegoId    Int?
+  usuarioId  Int?
+  juego      Juego?   @relation(fields: [juegoId], references: [id])
+  usuario    Usuario? @relation(fields: [usuarioId], references: [id])
+}
