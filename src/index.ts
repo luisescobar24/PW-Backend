@@ -722,7 +722,7 @@ app.post('/api/auth/verify-code', async (req: Request, res: Response) => {
     const user = await prisma.usuario.findFirst({ where: { correo } });
 
     if (!user || !user.token) {
-      return res.status(400).json({ message: 'Código de verificación no válido o expirado' });
+      return res.status(400).json({ message: 'Código de verificación no válido o expirado (no token)' });
     }
 
     // Verificar el token JWT que contiene el código de verificación
@@ -730,8 +730,15 @@ app.post('/api/auth/verify-code', async (req: Request, res: Response) => {
     try {
       decodedToken = jwt.verify(user.token, process.env.JWT_SECRET!);
     } catch (err) {
-      return res.status(400).json({ message: 'Código de verificación no válido o expirado' });
+      console.log('Error al verificar el token:', err);
+      return res.status(400).json({ message: 'Código de verificación no válido o expirado (jwt error)' });
     }
+
+    // LOGS para depuración
+    console.log('Token decodificado:', decodedToken);
+    console.log('Código recibido:', verificationCode);
+    console.log('Código esperado:', decodedToken.verificationCode);
+    console.log('Expiración:', decodedToken.expiration, 'Ahora:', Date.now());
 
     // Comparar el código de verificación con el código generado
     if (decodedToken.verificationCode !== verificationCode) {
@@ -739,17 +746,17 @@ app.post('/api/auth/verify-code', async (req: Request, res: Response) => {
     }
 
     // Verificar si el código ha expirado
-    if (decodedToken.expiration < Date.now()) {
+    if (typeof decodedToken.expiration !== 'number' || decodedToken.expiration < Date.now()) {
       return res.status(400).json({ message: 'El código de verificación ha expirado' });
     }
 
     // Si todo es correcto, actualizar el estado del usuario a true y limpiar el token
     await prisma.usuario.update({
       where: { correo },
-      data: { estado: true, token: "" },
+      data: { estado: true },
     });
 
-    return res.status(200).json({ message: 'Código de verificación válido, cuenta activada' });
+    return res.status(200).json({ success: true, message: 'Código de verificación válido', token: user.token });
   } catch (error) {
     console.error('Error al verificar el código:', error);
     return res.status(500).json({ message: 'Error al verificar el código' });
