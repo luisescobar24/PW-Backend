@@ -33,37 +33,21 @@ model Categoria {
 }
 
 model Juego {
-<<<<<<< HEAD
-  id                Int            @id @default(autoincrement())
-  nombre            String         @db.VarChar(100)
-  precio            Decimal        @db.Decimal(10, 2)
-  estaOferta        Boolean
-  estado            Boolean
-  categoriaId       Int
-  videoUrl          String?        @db.VarChar(255)
-  descripcion       String?        @db.VarChar(255)
-  fechaLanzamiento  DateTime?      // ← Agregado este campo
-  calificaciones    Calificacion[] 
-  imagenes          Imagen[]       @relation("JuegoImagenes")
-  categoria         Categoria      @relation(fields: [categoriaId], references: [id])
-  ventas            Venta[] 
-  plataformas       Plataforma[]   @relation("JuegoPlataforma")
-  Resena            Resena[]
-=======
-  id             Int            @id @default(autoincrement())
-  nombre         String         @db.VarChar(100)
-  precio         Decimal        @db.Decimal(10, 2)
-  estaOferta     Boolean
-  estado         Boolean
-  categoriaId    Int
-  videoUrl       String?        @db.VarChar(255)
-  descripcion    String?        @db.VarChar(255)  // New description field
-  calificaciones Calificacion[] 
-  imagenes       Imagen[]       @relation("JuegoImagenes")
-  categoria      Categoria      @relation(fields: [categoriaId], references: [id])
-  ventas         Venta[] 
-  plataformas    Plataforma[]   @relation("JuegoPlataforma")
->>>>>>> origin/master
+  id               Int            @id @default(autoincrement())
+  nombre           String         @db.VarChar(100)
+  precio           Decimal        @db.Decimal(10, 2)
+  estaOferta       Boolean
+  estado           Boolean
+  categoriaId      Int
+  videoUrl         String?        @db.VarChar(255)
+  descripcion      String?        @db.VarChar(255)
+  fechaLanzamiento DateTime? // ← Agregado este campo
+  calificaciones   Calificacion[]
+  imagenes         Imagen[]       @relation("JuegoImagenes")
+  categoria        Categoria      @relation(fields: [categoriaId], references: [id])
+  ventas           Venta[]
+  plataformas      Plataforma[]   @relation("JuegoPlataforma")
+  Resena           Resena[]
 }
 
 model Imagen {
@@ -75,18 +59,11 @@ model Imagen {
 }
 
 model Noticia {
-<<<<<<< HEAD
-  id        Int      @id @default(autoincrement())
-  titulo    String   @db.VarChar(200)
-  texto     String
-  activo    Boolean
-  imagen    String?  @db.VarChar(255)
-=======
   id     Int     @id @default(autoincrement())
   titulo String  @db.VarChar(200)
   texto  String
   activo Boolean
->>>>>>> origin/master
+  imagen String? @db.VarChar(255)
 }
 
 model Venta {
@@ -108,9 +85,9 @@ model Calificacion {
   usuarioId  Int?
   juego      Juego?   @relation(fields: [juegoId], references: [id])
   usuario    Usuario? @relation(fields: [usuarioId], references: [id])
-<<<<<<< HEAD
-  }
-  model Resena {
+}
+
+model Resena {
   id         Int      @id @default(autoincrement())
   juegoId    Int
   nombre     String
@@ -119,6 +96,3 @@ model Calificacion {
   fecha      DateTime @default(now())
   juego      Juego    @relation(fields: [juegoId], references: [id])
 }
-=======
-}
->>>>>>> origin/master
