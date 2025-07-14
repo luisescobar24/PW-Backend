@@ -33,6 +33,57 @@ app.use(cors({
 // Middleware para parsear el cuerpo de las peticiones como JSON
 app.use(express.json());
 
+// Ruta protegida para editar nombre y correo del usuario autenticado
+app.put('/api/usuarios/me', authenticateToken, async (req: AuthRequest, res: Response) => {
+  const userId = req.user?.userId;
+  const { nombre, password } = req.body;
+
+  if (!userId) {
+    return res.status(401).json({ message: 'No autenticado' });
+  }
+  if (!nombre && !password) {
+    return res.status(400).json({ message: 'Debes enviar al menos un campo para actualizar' });
+  }
+  try {
+    // Validar nombre
+    if (nombre) {
+      // Verificar si el nombre ya está en uso por otro usuario
+      const existing = await prisma.usuario.findFirst({ where: { nombre, id: { not: userId } } });
+      if (existing) {
+        return res.status(400).json({ message: 'El nombre de usuario ya está en uso por otro usuario' });
+      }
+    }
+    // Preparar datos para actualizar
+    const dataToUpdate: any = {};
+    if (nombre) dataToUpdate.nombre = nombre;
+    if (password) {
+      if (password.length < 6) {
+        return res.status(400).json({ message: 'La contraseña debe tener al menos 6 caracteres' });
+      }
+      const hashedPassword = await bcrypt.hash(password, 10);
+      dataToUpdate.password = hashedPassword;
+    }
+    // Actualizar usuario
+    const updatedUser = await prisma.usuario.update({
+      where: { id: userId },
+      data: dataToUpdate,
+      select: { id: true, nombre: true, correo: true }
+    });
+    return res.status(200).json({ success: true, user: updatedUser });
+  } catch (error: any) {
+    // Imprimir el error completo para depuración
+    console.error('Error al editar usuario:', error);
+    if (error.code === 'P2002' && error.meta?.target?.includes('nombre')) {
+      return res.status(400).json({ message: 'El nombre de usuario ya está en uso por otro usuario' });
+    }
+    if (error.code === 'P2025') {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    // Devuelve el mensaje real del error si existe, y el stack para depuración
+    return res.status(500).json({ message: error.message || 'Error al editar usuario', details: error.stack || error });
+  }
+});
+
 interface AuthRequest extends Request {
   user?: any;
 }
@@ -310,7 +361,45 @@ app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
 // Ruta para obtener un juego específico with sus imágenes
 app.get('/api/juegos/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
+app.get('/api/juegos/:id/resenas', async (req: Request, res: Response) => {
+  const juegoId = parseInt(req.params.id);
+  if (isNaN(juegoId)) return res.status(400).json({ error: 'ID inválido' });
 
+  try {
+    const resenas = await prisma.resena.findMany({
+      where: { juegoId },
+      orderBy: { fecha: 'desc' },
+    });
+    res.json(resenas);
+  } catch (error) {
+    console.error('Error al obtener reseñas:', error);
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+app.post('/api/juegos/:id/resenas', async (req: Request, res: Response) => {
+  const juegoId = parseInt(req.params.id);
+  const { nombre, comentario, estrellas } = req.body;
+
+  if (!nombre || !comentario || isNaN(estrellas)) {
+    return res.status(400).json({ error: 'Faltan campos obligatorios' });
+  }
+
+  try {
+    const nuevaResena = await prisma.resena.create({
+      data: {
+        juegoId,
+        nombre,
+        comentario,
+        estrellas,
+        fecha: new Date(),
+      },
+    });
+    res.status(201).json(nuevaResena);
+  } catch (error) {
+    console.error('Error al crear reseña:', error);
+    res.status(500).json({ error: 'No se pudo registrar la reseña' });
+  }
+});
   try {
     const juego = await prisma.juego.findUnique({
       where: { id: Number(id) },
@@ -432,7 +521,6 @@ app.post('/api/ventas', async (req: Request, res: Response) => {
   }
 });
 
-
 // Ruta para obtener todos los juegos
 app.get('/api/juegos', async (req, res) => {
   const { plataformaId, categoriaId } = req.query;  // Recibe los IDs como parámetros
@@ -456,10 +544,16 @@ app.get('/api/juegos', async (req, res) => {
       include: {
         imagenes: true,
         plataformas: true,
+        categoria: true,
       },
     });
 
-    return res.status(200).json(juegos);
+    // Formatear fecha para frontend (opcional)
+    const juegosConFecha = juegos.map(juego => ({
+      ...juego,
+      fechaLanzamiento: juego.fechaLanzamiento ? juego.fechaLanzamiento.toISOString().split('T')[0] : null
+    }));
+    return res.status(200).json(juegosConFecha);
   } catch (error) {
     console.error('Error al obtener los juegos:', error);
     return res.status(500).json({ message: 'Error al obtener los juegos' });
@@ -468,17 +562,18 @@ app.get('/api/juegos', async (req, res) => {
 
 // Ruta para agregar un nuevo juego (sin token requerido)
 app.post('/api/juegos', async (req: Request, res: Response) => {
-  const { nombre, descripcion, precio, estaOferta, estado, categoriaId, imagenes, videoUrl, plataformas } = req.body;
+  const { nombre, descripcion, precio, estaOferta, estado, categoriaId, imagenes, videoUrl, plataformas, fechaLanzamiento } = req.body;
 
   try {
     const nuevoJuego = await prisma.juego.create({
       data: {
         nombre,
-        descripcion, // Nuevo campo
+        descripcion,
         precio,
         estaOferta,
         estado,
         categoriaId,
+        fechaLanzamiento: fechaLanzamiento ? new Date(fechaLanzamiento) : null,
         imagenes: {
           create: imagenes.map((imagen: { url: string, descripcion: string }) => ({
             url: imagen.url,
@@ -491,7 +586,6 @@ app.post('/api/juegos', async (req: Request, res: Response) => {
         }
       }
     });
-
     return res.status(201).json(nuevoJuego);
   } catch (error) {
     console.error('Error al agregar juego:', error);
@@ -505,7 +599,7 @@ app.post('/api/juegos', async (req: Request, res: Response) => {
 // Ruta para editar un juego (sin token requerido)
 app.put('/api/juegos/:id', upload.array('imagenes', 10), async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { nombre, descripcion, precio, estaOferta, estado, categoriaId, videoUrl, plataformas, imagenesAConservar } = req.body;
+  const { nombre, descripcion, precio, estaOferta, estado, categoriaId, videoUrl, plataformas, imagenesAConservar, fechaLanzamiento } = req.body;
 
   try {
     // Convertir 'estado' y 'estaOferta' a booleanos
@@ -604,11 +698,12 @@ app.put('/api/juegos/:id', upload.array('imagenes', 10), async (req: Request, re
       where: { id: parseInt(id) },
       data: {
         nombre,
-        descripcion, // Nuevo campo
+        descripcion,
         precio,
         estaOferta: isOferta,
         estado: isEstado,
         categoriaId: categoriaIdNumber,
+        fechaLanzamiento: fechaLanzamiento ? new Date(fechaLanzamiento) : null,
         imagenes: {
           create: uploadedImages,
         },
@@ -619,7 +714,6 @@ app.put('/api/juegos/:id', upload.array('imagenes', 10), async (req: Request, re
         }
       }
     });
-
     return res.status(200).json(juegoEditado);
   } catch (error) {
     console.error('Error al editar el juego:', error);
@@ -845,3 +939,97 @@ app.delete('/api/imagenes/:id', async (req: Request, res: Response) => {
   }
 });
 
+
+// Obtener todas las noticias
+app.get("/api/noticias", async (req, res) => {
+  try {
+    const noticias = await prisma.noticia.findMany({
+      orderBy: { id: "desc" },
+    });
+    res.json(noticias);
+  } catch (err) {
+    res.status(500).json({ message: "Error al obtener noticias" });
+  }
+});
+
+// Obtener una noticia por id
+app.get("/api/noticias/:id", async (req, res) => {
+  try {
+    const noticia = await prisma.noticia.findUnique({
+      where: { id: Number(req.params.id) },
+    });
+    if (!noticia) return res.status(404).json({ message: "Noticia no encontrada" });
+    res.json(noticia);
+  } catch (err) {
+    res.status(500).json({ message: "Error al obtener noticia" });
+  }
+});
+
+// Crear noticia
+app.post("/api/noticias", async (req, res) => {
+  try {
+    const { titulo, texto, imagen, activo } = req.body;
+    const noticia = await prisma.noticia.create({
+      data: { titulo, texto, imagen, activo: !!activo },
+    });
+    res.json(noticia);
+  } catch (err) {
+    res.status(500).json({ message: "Error al crear noticia" });
+  }
+});
+
+// Editar noticia
+app.put("/api/noticias/:id", async (req, res) => {
+  try {
+    const { titulo, texto, imagen, activo } = req.body;
+    const noticia = await prisma.noticia.update({
+      where: { id: Number(req.params.id) },
+      data: { titulo, texto, imagen, activo: !!activo },
+    });
+    res.json(noticia);
+  } catch (err) {
+    res.status(500).json({ message: "Error al editar noticia" });
+  }
+});
+
+// Eliminar noticia
+app.delete("/api/noticias/:id", async (req, res) => {
+  try {
+    await prisma.noticia.delete({
+      where: { id: Number(req.params.id) },
+    });
+    res.json({ message: "Noticia eliminada" });
+  } catch (err) {
+    res.status(500).json({ message: "Error al eliminar noticia" });
+  }
+});
+
+// Juegos más vendidos (los primeros 5 juegos de la lista)
+app.get('/api/juegos-mas-vendidos', async (req: Request, res: Response) => {
+  try {
+    const juegos = await prisma.juego.findMany({
+      include: { imagenes: true },
+      orderBy: { id: 'asc' },  // Primeros juegos
+      take: 5
+    });
+    res.status(200).json(juegos);
+  } catch (error) {
+    console.error('Error al obtener juegos más vendidos:', error);
+    res.status(500).json({ message: 'Error al obtener juegos más vendidos' });
+  }
+});
+
+// Juegos mejor valorados (los últimos 5 juegos, usando el ID de forma inversa)
+app.get('/api/juegos-mejor-valorados', async (req: Request, res: Response) => {
+  try {
+    const juegos = await prisma.juego.findMany({
+      include: { imagenes: true },
+      orderBy: { id: 'desc' },  // Últimos juegos creados
+      take: 5
+    });
+    res.status(200).json(juegos);
+  } catch (error) {
+    console.error('Error al obtener juegos mejor valorados:', error);
+    res.status(500).json({ message: 'Error al obtener juegos mejor valorados' });
+  }
+});
