@@ -39,9 +39,9 @@ model Juego {
   estaOferta       Boolean
   estado           Boolean
   categoriaId      Int
+  fechaLanzamiento DateTime?      @default(now())
   videoUrl         String?        @db.VarChar(255)
   descripcion      String?        @db.VarChar(255)
-  fechaLanzamiento DateTime? // ← Agregado este campo
   calificaciones   Calificacion[]
   imagenes         Imagen[]       @relation("JuegoImagenes")
   categoria        Categoria      @relation(fields: [categoriaId], references: [id])

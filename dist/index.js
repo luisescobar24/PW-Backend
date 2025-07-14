@@ -46,6 +46,58 @@ app.use(cors({
 }));
 // Middleware para parsear el cuerpo de las peticiones como JSON
 app.use(express_1.default.json());
+// Ruta protegida para editar nombre y correo del usuario autenticado
+app.put('/api/usuarios/me', authenticateToken, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a, _b, _c;
+    const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a.userId;
+    const { nombre, password } = req.body;
+    if (!userId) {
+        return res.status(401).json({ message: 'No autenticado' });
+    }
+    if (!nombre && !password) {
+        return res.status(400).json({ message: 'Debes enviar al menos un campo para actualizar' });
+    }
+    try {
+        // Validar nombre
+        if (nombre) {
+            // Verificar si el nombre ya está en uso por otro usuario
+            const existing = yield prisma.usuario.findFirst({ where: { nombre, id: { not: userId } } });
+            if (existing) {
+                return res.status(400).json({ message: 'El nombre de usuario ya está en uso por otro usuario' });
+            }
+        }
+        // Preparar datos para actualizar
+        const dataToUpdate = {};
+        if (nombre)
+            dataToUpdate.nombre = nombre;
+        if (password) {
+            if (password.length < 6) {
+                return res.status(400).json({ message: 'La contraseña debe tener al menos 6 caracteres' });
+            }
+            const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
+            dataToUpdate.password = hashedPassword;
+        }
+        // Actualizar usuario
+        const updatedUser = yield prisma.usuario.update({
+            where: { id: userId },
+            data: dataToUpdate,
+            select: { id: true, nombre: true, correo: true }
+        });
+        return res.status(200).json({ success: true, user: updatedUser });
+    }
+    catch (error) {
+        // Imprimir el error completo para depuración
+        console.error('Error al editar usuario:', error);
+        if (error.code === 'P2002' && ((_c = (_b = error.meta) === null || _b === void 0 ? void 0 : _b.target) === null || _c === void 0 ? void 0 : _c.includes('nombre'))) {
+            return res.status(400).json({ message: 'El nombre de usuario ya está en uso por otro usuario' });
+        }
+        if (error.code === 'P2025') {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        // Devuelve el mensaje real del error si existe, y el stack para depuración
+        return res.status(500).json({ message: error.message || 'Error al editar usuario', details: error.stack || error });
+    }
+}));
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -276,6 +328,45 @@ app.post('/api/auth/forgot-password', (req, res) => __awaiter(void 0, void 0, vo
 // Ruta para obtener un juego específico with sus imágenes
 app.get('/api/juegos/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
+    app.get('/api/juegos/:id/resenas', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const juegoId = parseInt(req.params.id);
+        if (isNaN(juegoId))
+            return res.status(400).json({ error: 'ID inválido' });
+        try {
+            const resenas = yield prisma.resena.findMany({
+                where: { juegoId },
+                orderBy: { fecha: 'desc' },
+            });
+            res.json(resenas);
+        }
+        catch (error) {
+            console.error('Error al obtener reseñas:', error);
+            res.status(500).json({ error: 'Error interno' });
+        }
+    }));
+    app.post('/api/juegos/:id/resenas', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const juegoId = parseInt(req.params.id);
+        const { nombre, comentario, estrellas } = req.body;
+        if (!nombre || !comentario || isNaN(estrellas)) {
+            return res.status(400).json({ error: 'Faltan campos obligatorios' });
+        }
+        try {
+            const nuevaResena = yield prisma.resena.create({
+                data: {
+                    juegoId,
+                    nombre,
+                    comentario,
+                    estrellas,
+                    fecha: new Date(),
+                },
+            });
+            res.status(201).json(nuevaResena);
+        }
+        catch (error) {
+            console.error('Error al crear reseña:', error);
+            res.status(500).json({ error: 'No se pudo registrar la reseña' });
+        }
+    }));
     try {
         const juego = yield prisma.juego.findUnique({
             where: { id: Number(id) },
@@ -399,9 +490,12 @@ app.get('/api/juegos', (req, res) => __awaiter(void 0, void 0, void 0, function*
             include: {
                 imagenes: true,
                 plataformas: true,
+                categoria: true,
             },
         });
-        return res.status(200).json(juegos);
+        // Formatear fecha para frontend (opcional)
+        const juegosConFecha = juegos.map(juego => (Object.assign(Object.assign({}, juego), { fechaLanzamiento: juego.fechaLanzamiento ? juego.fechaLanzamiento.toISOString().split('T')[0] : null })));
+        return res.status(200).json(juegosConFecha);
     }
     catch (error) {
         console.error('Error al obtener los juegos:', error);
@@ -410,16 +504,17 @@ app.get('/api/juegos', (req, res) => __awaiter(void 0, void 0, void 0, function*
 }));
 // Ruta para agregar un nuevo juego (sin token requerido)
 app.post('/api/juegos', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { nombre, descripcion, precio, estaOferta, estado, categoriaId, imagenes, videoUrl, plataformas } = req.body;
+    const { nombre, descripcion, precio, estaOferta, estado, categoriaId, imagenes, videoUrl, plataformas, fechaLanzamiento } = req.body;
     try {
         const nuevoJuego = yield prisma.juego.create({
             data: {
                 nombre,
-                descripcion, // Nuevo campo
+                descripcion,
                 precio,
                 estaOferta,
                 estado,
                 categoriaId,
+                fechaLanzamiento: fechaLanzamiento ? new Date(fechaLanzamiento) : null,
                 imagenes: {
                     create: imagenes.map((imagen) => ({
                         url: imagen.url,
@@ -445,7 +540,8 @@ app.post('/api/juegos', (req, res) => __awaiter(void 0, void 0, void 0, function
 app.put('/api/juegos/:id', upload.array('imagenes', 10), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const { id } = req.params;
-    const { nombre, descripcion, precio, estaOferta, estado, categoriaId, videoUrl, plataformas, imagenesAConservar } = req.body;
+    const { nombre, descripcion, precio, estaOferta, estado, categoriaId, videoUrl, plataformas, imagenesAConservar, fechaLanzamiento } = req.body;
+    console.log('Backend recibió fechaLanzamiento:', fechaLanzamiento); // Debug
     try {
         // Convertir 'estado' y 'estaOferta' a booleanos
         const isEstado = (estado === 'true' || estado === true);
@@ -526,11 +622,12 @@ app.put('/api/juegos/:id', upload.array('imagenes', 10), (req, res) => __awaiter
             where: { id: parseInt(id) },
             data: {
                 nombre,
-                descripcion, // Nuevo campo
+                descripcion,
                 precio,
                 estaOferta: isOferta,
                 estado: isEstado,
                 categoriaId: categoriaIdNumber,
+                fechaLanzamiento: fechaLanzamiento ? new Date(fechaLanzamiento) : null,
                 imagenes: {
                     create: uploadedImages,
                 },
@@ -767,6 +864,101 @@ app.delete('/api/imagenes/:id', (req, res) => __awaiter(void 0, void 0, void 0, 
     catch (error) {
         console.error('Error al eliminar la imagen:', error);
         return res.status(500).json({ message: 'Error al eliminar la imagen' });
+    }
+}));
+// Obtener todas las noticias
+app.get("/api/noticias", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const noticias = yield prisma.noticia.findMany({
+            orderBy: { id: "desc" },
+        });
+        res.json(noticias);
+    }
+    catch (err) {
+        res.status(500).json({ message: "Error al obtener noticias" });
+    }
+}));
+// Obtener una noticia por id
+app.get("/api/noticias/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const noticia = yield prisma.noticia.findUnique({
+            where: { id: Number(req.params.id) },
+        });
+        if (!noticia)
+            return res.status(404).json({ message: "Noticia no encontrada" });
+        res.json(noticia);
+    }
+    catch (err) {
+        res.status(500).json({ message: "Error al obtener noticia" });
+    }
+}));
+// Crear noticia
+app.post("/api/noticias", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { titulo, texto, imagen, activo } = req.body;
+        const noticia = yield prisma.noticia.create({
+            data: { titulo, texto, imagen, activo: !!activo },
+        });
+        res.json(noticia);
+    }
+    catch (err) {
+        res.status(500).json({ message: "Error al crear noticia" });
+    }
+}));
+// Editar noticia
+app.put("/api/noticias/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { titulo, texto, imagen, activo } = req.body;
+        const noticia = yield prisma.noticia.update({
+            where: { id: Number(req.params.id) },
+            data: { titulo, texto, imagen, activo: !!activo },
+        });
+        res.json(noticia);
+    }
+    catch (err) {
+        res.status(500).json({ message: "Error al editar noticia" });
+    }
+}));
+// Eliminar noticia
+app.delete("/api/noticias/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield prisma.noticia.delete({
+            where: { id: Number(req.params.id) },
+        });
+        res.json({ message: "Noticia eliminada" });
+    }
+    catch (err) {
+        res.status(500).json({ message: "Error al eliminar noticia" });
+    }
+}));
+// Juegos más vendidos (los primeros 5 juegos de la lista)
+app.get('/api/juegos-mas-vendidos', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const juegos = yield prisma.juego.findMany({
+            include: { imagenes: true },
+            orderBy: { id: 'asc' }, // Primeros juegos
+            take: 5
+        });
+        res.status(200).json(juegos);
+    }
+    catch (error) {
+        console.error('Error al obtener juegos más vendidos:', error);
+        res.status(500).json({ message: 'Error al obtener juegos más vendidos' });
+    }
+}));
+// Juegos mejor valorados (los últimos 5 juegos, usando el ID de forma inversa)
+app.get('/api/juegos-mejor-valorados', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const juegos = yield prisma.juego.findMany({
+            include: { imagenes: true },
+            orderBy: { id: 'desc' }, // Últimos juegos creados
+            take: 5
+        });
+        res.status(200).json(juegos);
+    }
+    catch (error) {
+        console.error('Error al obtener juegos mejor valorados:', error);
+        res.status(500).json({ message: 'Error al obtener juegos mejor valorados' });
     }
 }));
 //# sourceMappingURL=index.js.map
