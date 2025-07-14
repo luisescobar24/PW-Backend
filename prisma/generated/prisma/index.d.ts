@@ -331,8 +331,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.10.1
-   * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
+   * Prisma Client JS version: 6.11.1
+   * Query Engine version: f40f79ec31188888a2e33acda0ecc8fd10a853a9
    */
   export type PrismaVersion = {
     client: string
@@ -5084,9 +5084,9 @@ export namespace Prisma {
     estaOferta: boolean | null
     estado: boolean | null
     categoriaId: number | null
+    fechaLanzamiento: Date | null
     videoUrl: string | null
     descripcion: string | null
-    fechaLanzamiento: Date | null
   }
 
   export type JuegoMaxAggregateOutputType = {
@@ -5096,9 +5096,9 @@ export namespace Prisma {
     estaOferta: boolean | null
     estado: boolean | null
     categoriaId: number | null
+    fechaLanzamiento: Date | null
     videoUrl: string | null
     descripcion: string | null
-    fechaLanzamiento: Date | null
   }
 
   export type JuegoCountAggregateOutputType = {
@@ -5108,9 +5108,9 @@ export namespace Prisma {
     estaOferta: number
     estado: number
     categoriaId: number
+    fechaLanzamiento: number
     videoUrl: number
     descripcion: number
-    fechaLanzamiento: number
     _all: number
   }
 
@@ -5134,9 +5134,9 @@ export namespace Prisma {
     estaOferta?: true
     estado?: true
     categoriaId?: true
+    fechaLanzamiento?: true
     videoUrl?: true
     descripcion?: true
-    fechaLanzamiento?: true
   }
 
   export type JuegoMaxAggregateInputType = {
@@ -5146,9 +5146,9 @@ export namespace Prisma {
     estaOferta?: true
     estado?: true
     categoriaId?: true
+    fechaLanzamiento?: true
     videoUrl?: true
     descripcion?: true
-    fechaLanzamiento?: true
   }
 
   export type JuegoCountAggregateInputType = {
@@ -5158,9 +5158,9 @@ export namespace Prisma {
     estaOferta?: true
     estado?: true
     categoriaId?: true
+    fechaLanzamiento?: true
     videoUrl?: true
     descripcion?: true
-    fechaLanzamiento?: true
     _all?: true
   }
 
@@ -5257,9 +5257,9 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento: Date | null
     videoUrl: string | null
     descripcion: string | null
-    fechaLanzamiento: Date | null
     _count: JuegoCountAggregateOutputType | null
     _avg: JuegoAvgAggregateOutputType | null
     _sum: JuegoSumAggregateOutputType | null
@@ -5288,9 +5288,9 @@ export namespace Prisma {
     estaOferta?: boolean
     estado?: boolean
     categoriaId?: boolean
+    fechaLanzamiento?: boolean
     videoUrl?: boolean
     descripcion?: boolean
-    fechaLanzamiento?: boolean
     calificaciones?: boolean | Juego$calificacionesArgs<ExtArgs>
     imagenes?: boolean | Juego$imagenesArgs<ExtArgs>
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
@@ -5307,9 +5307,9 @@ export namespace Prisma {
     estaOferta?: boolean
     estado?: boolean
     categoriaId?: boolean
+    fechaLanzamiento?: boolean
     videoUrl?: boolean
     descripcion?: boolean
-    fechaLanzamiento?: boolean
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["juego"]>
 
@@ -5320,9 +5320,9 @@ export namespace Prisma {
     estaOferta?: boolean
     estado?: boolean
     categoriaId?: boolean
+    fechaLanzamiento?: boolean
     videoUrl?: boolean
     descripcion?: boolean
-    fechaLanzamiento?: boolean
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["juego"]>
 
@@ -5333,12 +5333,12 @@ export namespace Prisma {
     estaOferta?: boolean
     estado?: boolean
     categoriaId?: boolean
+    fechaLanzamiento?: boolean
     videoUrl?: boolean
     descripcion?: boolean
-    fechaLanzamiento?: boolean
   }
 
-  export type JuegoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "precio" | "estaOferta" | "estado" | "categoriaId" | "videoUrl" | "descripcion" | "fechaLanzamiento", ExtArgs["result"]["juego"]>
+  export type JuegoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "precio" | "estaOferta" | "estado" | "categoriaId" | "fechaLanzamiento" | "videoUrl" | "descripcion", ExtArgs["result"]["juego"]>
   export type JuegoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     calificaciones?: boolean | Juego$calificacionesArgs<ExtArgs>
     imagenes?: boolean | Juego$imagenesArgs<ExtArgs>
@@ -5372,9 +5372,9 @@ export namespace Prisma {
       estaOferta: boolean
       estado: boolean
       categoriaId: number
+      fechaLanzamiento: Date | null
       videoUrl: string | null
       descripcion: string | null
-      fechaLanzamiento: Date | null
     }, ExtArgs["result"]["juego"]>
     composites: {}
   }
@@ -5810,9 +5810,9 @@ export namespace Prisma {
     readonly estaOferta: FieldRef<"Juego", 'Boolean'>
     readonly estado: FieldRef<"Juego", 'Boolean'>
     readonly categoriaId: FieldRef<"Juego", 'Int'>
+    readonly fechaLanzamiento: FieldRef<"Juego", 'DateTime'>
     readonly videoUrl: FieldRef<"Juego", 'String'>
     readonly descripcion: FieldRef<"Juego", 'String'>
-    readonly fechaLanzamiento: FieldRef<"Juego", 'DateTime'>
   }
     
 
@@ -11935,9 +11935,9 @@ export namespace Prisma {
     estaOferta: 'estaOferta',
     estado: 'estado',
     categoriaId: 'categoriaId',
+    fechaLanzamiento: 'fechaLanzamiento',
     videoUrl: 'videoUrl',
-    descripcion: 'descripcion',
-    fechaLanzamiento: 'fechaLanzamiento'
+    descripcion: 'descripcion'
   };
 
   export type JuegoScalarFieldEnum = (typeof JuegoScalarFieldEnum)[keyof typeof JuegoScalarFieldEnum]
@@ -12272,9 +12272,9 @@ export namespace Prisma {
     estaOferta?: BoolFilter<"Juego"> | boolean
     estado?: BoolFilter<"Juego"> | boolean
     categoriaId?: IntFilter<"Juego"> | number
+    fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
     videoUrl?: StringNullableFilter<"Juego"> | string | null
     descripcion?: StringNullableFilter<"Juego"> | string | null
-    fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
     calificaciones?: CalificacionListRelationFilter
     imagenes?: ImagenListRelationFilter
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
@@ -12290,9 +12290,9 @@ export namespace Prisma {
     estaOferta?: SortOrder
     estado?: SortOrder
     categoriaId?: SortOrder
+    fechaLanzamiento?: SortOrderInput | SortOrder
     videoUrl?: SortOrderInput | SortOrder
     descripcion?: SortOrderInput | SortOrder
-    fechaLanzamiento?: SortOrderInput | SortOrder
     calificaciones?: CalificacionOrderByRelationAggregateInput
     imagenes?: ImagenOrderByRelationAggregateInput
     categoria?: CategoriaOrderByWithRelationInput
@@ -12311,9 +12311,9 @@ export namespace Prisma {
     estaOferta?: BoolFilter<"Juego"> | boolean
     estado?: BoolFilter<"Juego"> | boolean
     categoriaId?: IntFilter<"Juego"> | number
+    fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
     videoUrl?: StringNullableFilter<"Juego"> | string | null
     descripcion?: StringNullableFilter<"Juego"> | string | null
-    fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
     calificaciones?: CalificacionListRelationFilter
     imagenes?: ImagenListRelationFilter
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
@@ -12329,9 +12329,9 @@ export namespace Prisma {
     estaOferta?: SortOrder
     estado?: SortOrder
     categoriaId?: SortOrder
+    fechaLanzamiento?: SortOrderInput | SortOrder
     videoUrl?: SortOrderInput | SortOrder
     descripcion?: SortOrderInput | SortOrder
-    fechaLanzamiento?: SortOrderInput | SortOrder
     _count?: JuegoCountOrderByAggregateInput
     _avg?: JuegoAvgOrderByAggregateInput
     _max?: JuegoMaxOrderByAggregateInput
@@ -12349,9 +12349,9 @@ export namespace Prisma {
     estaOferta?: BoolWithAggregatesFilter<"Juego"> | boolean
     estado?: BoolWithAggregatesFilter<"Juego"> | boolean
     categoriaId?: IntWithAggregatesFilter<"Juego"> | number
+    fechaLanzamiento?: DateTimeNullableWithAggregatesFilter<"Juego"> | Date | string | null
     videoUrl?: StringNullableWithAggregatesFilter<"Juego"> | string | null
     descripcion?: StringNullableWithAggregatesFilter<"Juego"> | string | null
-    fechaLanzamiento?: DateTimeNullableWithAggregatesFilter<"Juego"> | Date | string | null
   }
 
   export type ImagenWhereInput = {
@@ -12799,9 +12799,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
@@ -12817,9 +12817,9 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
@@ -12832,9 +12832,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
@@ -12850,9 +12850,9 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
@@ -12867,9 +12867,9 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
   }
 
   export type JuegoUpdateManyMutationInput = {
@@ -12877,9 +12877,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type JuegoUncheckedUpdateManyInput = {
@@ -12889,9 +12889,9 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ImagenCreateInput = {
@@ -13449,9 +13449,9 @@ export namespace Prisma {
     estaOferta?: SortOrder
     estado?: SortOrder
     categoriaId?: SortOrder
+    fechaLanzamiento?: SortOrder
     videoUrl?: SortOrder
     descripcion?: SortOrder
-    fechaLanzamiento?: SortOrder
   }
 
   export type JuegoAvgOrderByAggregateInput = {
@@ -13467,9 +13467,9 @@ export namespace Prisma {
     estaOferta?: SortOrder
     estado?: SortOrder
     categoriaId?: SortOrder
+    fechaLanzamiento?: SortOrder
     videoUrl?: SortOrder
     descripcion?: SortOrder
-    fechaLanzamiento?: SortOrder
   }
 
   export type JuegoMinOrderByAggregateInput = {
@@ -13479,9 +13479,9 @@ export namespace Prisma {
     estaOferta?: SortOrder
     estado?: SortOrder
     categoriaId?: SortOrder
+    fechaLanzamiento?: SortOrder
     videoUrl?: SortOrder
     descripcion?: SortOrder
-    fechaLanzamiento?: SortOrder
   }
 
   export type JuegoSumOrderByAggregateInput = {
@@ -14624,9 +14624,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
@@ -14641,9 +14641,9 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
@@ -14681,9 +14681,9 @@ export namespace Prisma {
     estaOferta?: BoolFilter<"Juego"> | boolean
     estado?: BoolFilter<"Juego"> | boolean
     categoriaId?: IntFilter<"Juego"> | number
+    fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
     videoUrl?: StringNullableFilter<"Juego"> | string | null
     descripcion?: StringNullableFilter<"Juego"> | string | null
-    fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
   }
 
   export type JuegoCreateWithoutCategoriaInput = {
@@ -14691,9 +14691,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
@@ -14707,9 +14707,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
@@ -15000,9 +15000,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
@@ -15017,9 +15017,9 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
@@ -15047,9 +15047,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
@@ -15064,9 +15064,9 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
@@ -15078,9 +15078,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
@@ -15095,9 +15095,9 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
@@ -15151,9 +15151,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
@@ -15168,9 +15168,9 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
@@ -15214,9 +15214,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
@@ -15231,9 +15231,9 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
@@ -15287,9 +15287,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
@@ -15304,9 +15304,9 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
@@ -15350,6 +15350,7 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
     fechaLanzamiento?: Date | string | null
@@ -15367,6 +15368,7 @@ export namespace Prisma {
     estaOferta: boolean
     estado: boolean
     categoriaId: number
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
     fechaLanzamiento?: Date | string | null
@@ -15397,6 +15399,7 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -15414,6 +15417,7 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -15486,9 +15490,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
@@ -15503,9 +15507,9 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
@@ -15519,9 +15523,9 @@ export namespace Prisma {
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
     categoriaId?: IntFieldUpdateOperationsInput | number
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type JuegoCreateManyCategoriaInput = {
@@ -15530,9 +15534,9 @@ export namespace Prisma {
     precio: Decimal | DecimalJsLike | number | string
     estaOferta: boolean
     estado: boolean
+    fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
   }
 
   export type JuegoUpdateWithoutCategoriaInput = {
@@ -15540,9 +15544,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
@@ -15556,9 +15560,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
@@ -15572,9 +15576,9 @@ export namespace Prisma {
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estaOferta?: BoolFieldUpdateOperationsInput | boolean
     estado?: BoolFieldUpdateOperationsInput | boolean
+    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type CalificacionCreateManyJuegoInput = {
