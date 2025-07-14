@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2016",                      // Nivel de ECMAScript
+    "module": "commonjs",                    // Usar CommonJS para Node.js
+    "outDir": "./dist",                      // Carpeta de salida para los archivos compilados
+    "rootDir": "./src",                      // Carpeta donde están los archivos .ts
+    "strict": true,                          // Activar comprobación estricta de tipos
+    "esModuleInterop": true,                 // Habilitar interoperabilidad entre módulos ESM y CommonJS
+    "allowSyntheticDefaultImports": true,    // Permitir importaciones de módulos CommonJS como ESM
+    "skipLibCheck": true,                    // Omite la comprobación de tipos en bibliotecas
+    "resolveJsonModule": true,               // Permite importar archivos JSON
+    "moduleResolution": "node",              // Resolución de módulos compatible con Node.js
+    "sourceMap": true,                       // Genera mapas de fuentes para depuración
+    "noEmitOnError": true,                   // No emitir archivos si hay errores
+    "skipDefaultLibCheck": true,             // Omite la comprobación de las bibliotecas predeterminadas
+    "forceConsistentCasingInFileNames": true, // Asegura que los nombres de archivo sean consistentes
+    "baseUrl": "./src",                      // Base para resolver módulos
+    "paths": {
+      "*": ["node_modules/*", "src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
