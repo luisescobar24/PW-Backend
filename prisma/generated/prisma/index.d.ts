@@ -53,11 +53,14 @@ export type Venta = $Result.DefaultSelection<Prisma.$VentaPayload>
  * 
  */
 export type Calificacion = $Result.DefaultSelection<Prisma.$CalificacionPayload>
+<<<<<<< HEAD
 /**
  * Model Resena
  * 
  */
 export type Resena = $Result.DefaultSelection<Prisma.$ResenaPayload>
+=======
+>>>>>>> origin/master
 
 /**
  * ##  Prisma Client ʲˢ
@@ -263,6 +266,7 @@ export class PrismaClient<
     * ```
     */
   get calificacion(): Prisma.CalificacionDelegate<ExtArgs, ClientOptions>;
+<<<<<<< HEAD
 
   /**
    * `prisma.resena`: Exposes CRUD operations for the **Resena** model.
@@ -273,6 +277,8 @@ export class PrismaClient<
     * ```
     */
   get resena(): Prisma.ResenaDelegate<ExtArgs, ClientOptions>;
+=======
+>>>>>>> origin/master
 }
 
 export namespace Prisma {
@@ -720,8 +726,12 @@ export namespace Prisma {
     Imagen: 'Imagen',
     Noticia: 'Noticia',
     Venta: 'Venta',
+<<<<<<< HEAD
     Calificacion: 'Calificacion',
     Resena: 'Resena'
+=======
+    Calificacion: 'Calificacion'
+>>>>>>> origin/master
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -740,7 +750,11 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
+<<<<<<< HEAD
       modelProps: "usuario" | "plataforma" | "categoria" | "juego" | "imagen" | "noticia" | "venta" | "calificacion" | "resena"
+=======
+      modelProps: "usuario" | "plataforma" | "categoria" | "juego" | "imagen" | "noticia" | "venta" | "calificacion"
+>>>>>>> origin/master
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1336,6 +1350,7 @@ export namespace Prisma {
           }
         }
       }
+<<<<<<< HEAD
       Resena: {
         payload: Prisma.$ResenaPayload<ExtArgs>
         fields: Prisma.ResenaFieldRefs
@@ -1410,6 +1425,8 @@ export namespace Prisma {
           }
         }
       }
+=======
+>>>>>>> origin/master
     }
   } & {
     other: {
@@ -1502,7 +1519,10 @@ export namespace Prisma {
     noticia?: NoticiaOmit
     venta?: VentaOmit
     calificacion?: CalificacionOmit
+<<<<<<< HEAD
     resena?: ResenaOmit
+=======
+>>>>>>> origin/master
   }
 
   /* Types for Logging */
@@ -1703,7 +1723,10 @@ export namespace Prisma {
     imagenes: number
     ventas: number
     plataformas: number
+<<<<<<< HEAD
     Resena: number
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1711,7 +1734,10 @@ export namespace Prisma {
     imagenes?: boolean | JuegoCountOutputTypeCountImagenesArgs
     ventas?: boolean | JuegoCountOutputTypeCountVentasArgs
     plataformas?: boolean | JuegoCountOutputTypeCountPlataformasArgs
+<<<<<<< HEAD
     Resena?: boolean | JuegoCountOutputTypeCountResenaArgs
+=======
+>>>>>>> origin/master
   }
 
   // Custom InputTypes
@@ -1753,6 +1779,7 @@ export namespace Prisma {
     where?: PlataformaWhereInput
   }
 
+<<<<<<< HEAD
   /**
    * JuegoCountOutputType without action
    */
@@ -1760,6 +1787,8 @@ export namespace Prisma {
     where?: ResenaWhereInput
   }
 
+=======
+>>>>>>> origin/master
 
   /**
    * Models
@@ -5086,7 +5115,10 @@ export namespace Prisma {
     categoriaId: number | null
     videoUrl: string | null
     descripcion: string | null
+<<<<<<< HEAD
     fechaLanzamiento: Date | null
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoMaxAggregateOutputType = {
@@ -5098,7 +5130,10 @@ export namespace Prisma {
     categoriaId: number | null
     videoUrl: string | null
     descripcion: string | null
+<<<<<<< HEAD
     fechaLanzamiento: Date | null
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoCountAggregateOutputType = {
@@ -5110,7 +5145,10 @@ export namespace Prisma {
     categoriaId: number
     videoUrl: number
     descripcion: number
+<<<<<<< HEAD
     fechaLanzamiento: number
+=======
+>>>>>>> origin/master
     _all: number
   }
 
@@ -5136,7 +5174,10 @@ export namespace Prisma {
     categoriaId?: true
     videoUrl?: true
     descripcion?: true
+<<<<<<< HEAD
     fechaLanzamiento?: true
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoMaxAggregateInputType = {
@@ -5148,7 +5189,10 @@ export namespace Prisma {
     categoriaId?: true
     videoUrl?: true
     descripcion?: true
+<<<<<<< HEAD
     fechaLanzamiento?: true
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoCountAggregateInputType = {
@@ -5160,7 +5204,10 @@ export namespace Prisma {
     categoriaId?: true
     videoUrl?: true
     descripcion?: true
+<<<<<<< HEAD
     fechaLanzamiento?: true
+=======
+>>>>>>> origin/master
     _all?: true
   }
 
@@ -5259,7 +5306,10 @@ export namespace Prisma {
     categoriaId: number
     videoUrl: string | null
     descripcion: string | null
+<<<<<<< HEAD
     fechaLanzamiento: Date | null
+=======
+>>>>>>> origin/master
     _count: JuegoCountAggregateOutputType | null
     _avg: JuegoAvgAggregateOutputType | null
     _sum: JuegoSumAggregateOutputType | null
@@ -5290,13 +5340,19 @@ export namespace Prisma {
     categoriaId?: boolean
     videoUrl?: boolean
     descripcion?: boolean
+<<<<<<< HEAD
     fechaLanzamiento?: boolean
+=======
+>>>>>>> origin/master
     calificaciones?: boolean | Juego$calificacionesArgs<ExtArgs>
     imagenes?: boolean | Juego$imagenesArgs<ExtArgs>
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
     ventas?: boolean | Juego$ventasArgs<ExtArgs>
     plataformas?: boolean | Juego$plataformasArgs<ExtArgs>
+<<<<<<< HEAD
     Resena?: boolean | Juego$ResenaArgs<ExtArgs>
+=======
+>>>>>>> origin/master
     _count?: boolean | JuegoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["juego"]>
 
@@ -5309,7 +5365,10 @@ export namespace Prisma {
     categoriaId?: boolean
     videoUrl?: boolean
     descripcion?: boolean
+<<<<<<< HEAD
     fechaLanzamiento?: boolean
+=======
+>>>>>>> origin/master
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["juego"]>
 
@@ -5322,7 +5381,10 @@ export namespace Prisma {
     categoriaId?: boolean
     videoUrl?: boolean
     descripcion?: boolean
+<<<<<<< HEAD
     fechaLanzamiento?: boolean
+=======
+>>>>>>> origin/master
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["juego"]>
 
@@ -5335,17 +5397,26 @@ export namespace Prisma {
     categoriaId?: boolean
     videoUrl?: boolean
     descripcion?: boolean
+<<<<<<< HEAD
     fechaLanzamiento?: boolean
   }
 
   export type JuegoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "precio" | "estaOferta" | "estado" | "categoriaId" | "videoUrl" | "descripcion" | "fechaLanzamiento", ExtArgs["result"]["juego"]>
+=======
+  }
+
+  export type JuegoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "precio" | "estaOferta" | "estado" | "categoriaId" | "videoUrl" | "descripcion", ExtArgs["result"]["juego"]>
+>>>>>>> origin/master
   export type JuegoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     calificaciones?: boolean | Juego$calificacionesArgs<ExtArgs>
     imagenes?: boolean | Juego$imagenesArgs<ExtArgs>
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
     ventas?: boolean | Juego$ventasArgs<ExtArgs>
     plataformas?: boolean | Juego$plataformasArgs<ExtArgs>
+<<<<<<< HEAD
     Resena?: boolean | Juego$ResenaArgs<ExtArgs>
+=======
+>>>>>>> origin/master
     _count?: boolean | JuegoCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type JuegoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5363,7 +5434,10 @@ export namespace Prisma {
       categoria: Prisma.$CategoriaPayload<ExtArgs>
       ventas: Prisma.$VentaPayload<ExtArgs>[]
       plataformas: Prisma.$PlataformaPayload<ExtArgs>[]
+<<<<<<< HEAD
       Resena: Prisma.$ResenaPayload<ExtArgs>[]
+=======
+>>>>>>> origin/master
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5374,7 +5448,10 @@ export namespace Prisma {
       categoriaId: number
       videoUrl: string | null
       descripcion: string | null
+<<<<<<< HEAD
       fechaLanzamiento: Date | null
+=======
+>>>>>>> origin/master
     }, ExtArgs["result"]["juego"]>
     composites: {}
   }
@@ -5774,7 +5851,10 @@ export namespace Prisma {
     categoria<T extends CategoriaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoriaDefaultArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     ventas<T extends Juego$ventasArgs<ExtArgs> = {}>(args?: Subset<T, Juego$ventasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VentaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     plataformas<T extends Juego$plataformasArgs<ExtArgs> = {}>(args?: Subset<T, Juego$plataformasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlataformaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+<<<<<<< HEAD
     Resena<T extends Juego$ResenaArgs<ExtArgs> = {}>(args?: Subset<T, Juego$ResenaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResenaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+=======
+>>>>>>> origin/master
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5812,7 +5892,10 @@ export namespace Prisma {
     readonly categoriaId: FieldRef<"Juego", 'Int'>
     readonly videoUrl: FieldRef<"Juego", 'String'>
     readonly descripcion: FieldRef<"Juego", 'String'>
+<<<<<<< HEAD
     readonly fechaLanzamiento: FieldRef<"Juego", 'DateTime'>
+=======
+>>>>>>> origin/master
   }
     
 
@@ -6305,6 +6388,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Juego.Resena
    */
   export type Juego$ResenaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6329,6 +6413,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> origin/master
    * Juego without action
    */
   export type JuegoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7455,7 +7541,10 @@ export namespace Prisma {
     titulo: string | null
     texto: string | null
     activo: boolean | null
+<<<<<<< HEAD
     imagen: string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaMaxAggregateOutputType = {
@@ -7463,7 +7552,10 @@ export namespace Prisma {
     titulo: string | null
     texto: string | null
     activo: boolean | null
+<<<<<<< HEAD
     imagen: string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaCountAggregateOutputType = {
@@ -7471,7 +7563,10 @@ export namespace Prisma {
     titulo: number
     texto: number
     activo: number
+<<<<<<< HEAD
     imagen: number
+=======
+>>>>>>> origin/master
     _all: number
   }
 
@@ -7489,7 +7584,10 @@ export namespace Prisma {
     titulo?: true
     texto?: true
     activo?: true
+<<<<<<< HEAD
     imagen?: true
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaMaxAggregateInputType = {
@@ -7497,7 +7595,10 @@ export namespace Prisma {
     titulo?: true
     texto?: true
     activo?: true
+<<<<<<< HEAD
     imagen?: true
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaCountAggregateInputType = {
@@ -7505,7 +7606,10 @@ export namespace Prisma {
     titulo?: true
     texto?: true
     activo?: true
+<<<<<<< HEAD
     imagen?: true
+=======
+>>>>>>> origin/master
     _all?: true
   }
 
@@ -7600,7 +7704,10 @@ export namespace Prisma {
     titulo: string
     texto: string
     activo: boolean
+<<<<<<< HEAD
     imagen: string | null
+=======
+>>>>>>> origin/master
     _count: NoticiaCountAggregateOutputType | null
     _avg: NoticiaAvgAggregateOutputType | null
     _sum: NoticiaSumAggregateOutputType | null
@@ -7627,7 +7734,10 @@ export namespace Prisma {
     titulo?: boolean
     texto?: boolean
     activo?: boolean
+<<<<<<< HEAD
     imagen?: boolean
+=======
+>>>>>>> origin/master
   }, ExtArgs["result"]["noticia"]>
 
   export type NoticiaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7635,7 +7745,10 @@ export namespace Prisma {
     titulo?: boolean
     texto?: boolean
     activo?: boolean
+<<<<<<< HEAD
     imagen?: boolean
+=======
+>>>>>>> origin/master
   }, ExtArgs["result"]["noticia"]>
 
   export type NoticiaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7643,7 +7756,10 @@ export namespace Prisma {
     titulo?: boolean
     texto?: boolean
     activo?: boolean
+<<<<<<< HEAD
     imagen?: boolean
+=======
+>>>>>>> origin/master
   }, ExtArgs["result"]["noticia"]>
 
   export type NoticiaSelectScalar = {
@@ -7651,10 +7767,16 @@ export namespace Prisma {
     titulo?: boolean
     texto?: boolean
     activo?: boolean
+<<<<<<< HEAD
     imagen?: boolean
   }
 
   export type NoticiaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "titulo" | "texto" | "activo" | "imagen", ExtArgs["result"]["noticia"]>
+=======
+  }
+
+  export type NoticiaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "titulo" | "texto" | "activo", ExtArgs["result"]["noticia"]>
+>>>>>>> origin/master
 
   export type $NoticiaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Noticia"
@@ -7664,7 +7786,10 @@ export namespace Prisma {
       titulo: string
       texto: string
       activo: boolean
+<<<<<<< HEAD
       imagen: string | null
+=======
+>>>>>>> origin/master
     }, ExtArgs["result"]["noticia"]>
     composites: {}
   }
@@ -8092,7 +8217,10 @@ export namespace Prisma {
     readonly titulo: FieldRef<"Noticia", 'String'>
     readonly texto: FieldRef<"Noticia", 'String'>
     readonly activo: FieldRef<"Noticia", 'Boolean'>
+<<<<<<< HEAD
     readonly imagen: FieldRef<"Noticia", 'String'>
+=======
+>>>>>>> origin/master
   }
     
 
@@ -10773,6 +10901,7 @@ export namespace Prisma {
 
 
   /**
+<<<<<<< HEAD
    * Model Resena
    */
 
@@ -11886,6 +12015,8 @@ export namespace Prisma {
 
 
   /**
+=======
+>>>>>>> origin/master
    * Enums
    */
 
@@ -11936,8 +12067,12 @@ export namespace Prisma {
     estado: 'estado',
     categoriaId: 'categoriaId',
     videoUrl: 'videoUrl',
+<<<<<<< HEAD
     descripcion: 'descripcion',
     fechaLanzamiento: 'fechaLanzamiento'
+=======
+    descripcion: 'descripcion'
+>>>>>>> origin/master
   };
 
   export type JuegoScalarFieldEnum = (typeof JuegoScalarFieldEnum)[keyof typeof JuegoScalarFieldEnum]
@@ -11957,8 +12092,12 @@ export namespace Prisma {
     id: 'id',
     titulo: 'titulo',
     texto: 'texto',
+<<<<<<< HEAD
     activo: 'activo',
     imagen: 'imagen'
+=======
+    activo: 'activo'
+>>>>>>> origin/master
   };
 
   export type NoticiaScalarFieldEnum = (typeof NoticiaScalarFieldEnum)[keyof typeof NoticiaScalarFieldEnum]
@@ -11987,6 +12126,7 @@ export namespace Prisma {
   export type CalificacionScalarFieldEnum = (typeof CalificacionScalarFieldEnum)[keyof typeof CalificacionScalarFieldEnum]
 
 
+<<<<<<< HEAD
   export const ResenaScalarFieldEnum: {
     id: 'id',
     juegoId: 'juegoId',
@@ -11999,6 +12139,8 @@ export namespace Prisma {
   export type ResenaScalarFieldEnum = (typeof ResenaScalarFieldEnum)[keyof typeof ResenaScalarFieldEnum]
 
 
+=======
+>>>>>>> origin/master
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -12274,13 +12416,19 @@ export namespace Prisma {
     categoriaId?: IntFilter<"Juego"> | number
     videoUrl?: StringNullableFilter<"Juego"> | string | null
     descripcion?: StringNullableFilter<"Juego"> | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionListRelationFilter
     imagenes?: ImagenListRelationFilter
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
     ventas?: VentaListRelationFilter
     plataformas?: PlataformaListRelationFilter
+<<<<<<< HEAD
     Resena?: ResenaListRelationFilter
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoOrderByWithRelationInput = {
@@ -12292,13 +12440,19 @@ export namespace Prisma {
     categoriaId?: SortOrder
     videoUrl?: SortOrderInput | SortOrder
     descripcion?: SortOrderInput | SortOrder
+<<<<<<< HEAD
     fechaLanzamiento?: SortOrderInput | SortOrder
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionOrderByRelationAggregateInput
     imagenes?: ImagenOrderByRelationAggregateInput
     categoria?: CategoriaOrderByWithRelationInput
     ventas?: VentaOrderByRelationAggregateInput
     plataformas?: PlataformaOrderByRelationAggregateInput
+<<<<<<< HEAD
     Resena?: ResenaOrderByRelationAggregateInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoWhereUniqueInput = Prisma.AtLeast<{
@@ -12313,13 +12467,19 @@ export namespace Prisma {
     categoriaId?: IntFilter<"Juego"> | number
     videoUrl?: StringNullableFilter<"Juego"> | string | null
     descripcion?: StringNullableFilter<"Juego"> | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionListRelationFilter
     imagenes?: ImagenListRelationFilter
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
     ventas?: VentaListRelationFilter
     plataformas?: PlataformaListRelationFilter
+<<<<<<< HEAD
     Resena?: ResenaListRelationFilter
+=======
+>>>>>>> origin/master
   }, "id">
 
   export type JuegoOrderByWithAggregationInput = {
@@ -12331,7 +12491,10 @@ export namespace Prisma {
     categoriaId?: SortOrder
     videoUrl?: SortOrderInput | SortOrder
     descripcion?: SortOrderInput | SortOrder
+<<<<<<< HEAD
     fechaLanzamiento?: SortOrderInput | SortOrder
+=======
+>>>>>>> origin/master
     _count?: JuegoCountOrderByAggregateInput
     _avg?: JuegoAvgOrderByAggregateInput
     _max?: JuegoMaxOrderByAggregateInput
@@ -12351,7 +12514,10 @@ export namespace Prisma {
     categoriaId?: IntWithAggregatesFilter<"Juego"> | number
     videoUrl?: StringNullableWithAggregatesFilter<"Juego"> | string | null
     descripcion?: StringNullableWithAggregatesFilter<"Juego"> | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: DateTimeNullableWithAggregatesFilter<"Juego"> | Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type ImagenWhereInput = {
@@ -12414,7 +12580,10 @@ export namespace Prisma {
     titulo?: StringFilter<"Noticia"> | string
     texto?: StringFilter<"Noticia"> | string
     activo?: BoolFilter<"Noticia"> | boolean
+<<<<<<< HEAD
     imagen?: StringNullableFilter<"Noticia"> | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaOrderByWithRelationInput = {
@@ -12422,7 +12591,10 @@ export namespace Prisma {
     titulo?: SortOrder
     texto?: SortOrder
     activo?: SortOrder
+<<<<<<< HEAD
     imagen?: SortOrderInput | SortOrder
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaWhereUniqueInput = Prisma.AtLeast<{
@@ -12433,7 +12605,10 @@ export namespace Prisma {
     titulo?: StringFilter<"Noticia"> | string
     texto?: StringFilter<"Noticia"> | string
     activo?: BoolFilter<"Noticia"> | boolean
+<<<<<<< HEAD
     imagen?: StringNullableFilter<"Noticia"> | string | null
+=======
+>>>>>>> origin/master
   }, "id">
 
   export type NoticiaOrderByWithAggregationInput = {
@@ -12441,7 +12616,10 @@ export namespace Prisma {
     titulo?: SortOrder
     texto?: SortOrder
     activo?: SortOrder
+<<<<<<< HEAD
     imagen?: SortOrderInput | SortOrder
+=======
+>>>>>>> origin/master
     _count?: NoticiaCountOrderByAggregateInput
     _avg?: NoticiaAvgOrderByAggregateInput
     _max?: NoticiaMaxOrderByAggregateInput
@@ -12457,7 +12635,10 @@ export namespace Prisma {
     titulo?: StringWithAggregatesFilter<"Noticia"> | string
     texto?: StringWithAggregatesFilter<"Noticia"> | string
     activo?: BoolWithAggregatesFilter<"Noticia"> | boolean
+<<<<<<< HEAD
     imagen?: StringNullableWithAggregatesFilter<"Noticia"> | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type VentaWhereInput = {
@@ -12585,6 +12766,7 @@ export namespace Prisma {
     usuarioId?: IntNullableWithAggregatesFilter<"Calificacion"> | number | null
   }
 
+<<<<<<< HEAD
   export type ResenaWhereInput = {
     AND?: ResenaWhereInput | ResenaWhereInput[]
     OR?: ResenaWhereInput[]
@@ -12647,6 +12829,8 @@ export namespace Prisma {
     fecha?: DateTimeWithAggregatesFilter<"Resena"> | Date | string
   }
 
+=======
+>>>>>>> origin/master
   export type UsuarioCreateInput = {
     correo: string
     password: string
@@ -12801,13 +12985,19 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaCreateNestedManyWithoutJuegosInput
+<<<<<<< HEAD
     Resena?: ResenaCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedCreateInput = {
@@ -12819,12 +13009,18 @@ export namespace Prisma {
     categoriaId: number
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
+<<<<<<< HEAD
     Resena?: ResenaUncheckedCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUpdateInput = {
@@ -12834,13 +13030,19 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUpdateManyWithoutJuegosNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateInput = {
@@ -12852,12 +13054,18 @@ export namespace Prisma {
     categoriaId?: IntFieldUpdateOperationsInput | number
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUncheckedUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoCreateManyInput = {
@@ -12869,7 +13077,10 @@ export namespace Prisma {
     categoriaId: number
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUpdateManyMutationInput = {
@@ -12879,7 +13090,10 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateManyInput = {
@@ -12891,7 +13105,10 @@ export namespace Prisma {
     categoriaId?: IntFieldUpdateOperationsInput | number
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type ImagenCreateInput = {
@@ -12943,7 +13160,10 @@ export namespace Prisma {
     titulo: string
     texto: string
     activo: boolean
+<<<<<<< HEAD
     imagen?: string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaUncheckedCreateInput = {
@@ -12951,14 +13171,20 @@ export namespace Prisma {
     titulo: string
     texto: string
     activo: boolean
+<<<<<<< HEAD
     imagen?: string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaUpdateInput = {
     titulo?: StringFieldUpdateOperationsInput | string
     texto?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+<<<<<<< HEAD
     imagen?: NullableStringFieldUpdateOperationsInput | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaUncheckedUpdateInput = {
@@ -12966,7 +13192,10 @@ export namespace Prisma {
     titulo?: StringFieldUpdateOperationsInput | string
     texto?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+<<<<<<< HEAD
     imagen?: NullableStringFieldUpdateOperationsInput | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaCreateManyInput = {
@@ -12974,14 +13203,20 @@ export namespace Prisma {
     titulo: string
     texto: string
     activo: boolean
+<<<<<<< HEAD
     imagen?: string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaUpdateManyMutationInput = {
     titulo?: StringFieldUpdateOperationsInput | string
     texto?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+<<<<<<< HEAD
     imagen?: NullableStringFieldUpdateOperationsInput | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaUncheckedUpdateManyInput = {
@@ -12989,7 +13224,10 @@ export namespace Prisma {
     titulo?: StringFieldUpdateOperationsInput | string
     texto?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+<<<<<<< HEAD
     imagen?: NullableStringFieldUpdateOperationsInput | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type VentaCreateInput = {
@@ -13101,6 +13339,7 @@ export namespace Prisma {
     usuarioId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+<<<<<<< HEAD
   export type ResenaCreateInput = {
     nombre: string
     comentario: string
@@ -13160,6 +13399,8 @@ export namespace Prisma {
     fecha?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+=======
+>>>>>>> origin/master
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -13396,6 +13637,7 @@ export namespace Prisma {
     not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
+<<<<<<< HEAD
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -13407,6 +13649,8 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+=======
+>>>>>>> origin/master
   export type ImagenListRelationFilter = {
     every?: ImagenWhereInput
     some?: ImagenWhereInput
@@ -13424,12 +13668,15 @@ export namespace Prisma {
     none?: PlataformaWhereInput
   }
 
+<<<<<<< HEAD
   export type ResenaListRelationFilter = {
     every?: ResenaWhereInput
     some?: ResenaWhereInput
     none?: ResenaWhereInput
   }
 
+=======
+>>>>>>> origin/master
   export type ImagenOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -13438,10 +13685,13 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+<<<<<<< HEAD
   export type ResenaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
+=======
+>>>>>>> origin/master
   export type JuegoCountOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
@@ -13451,7 +13701,10 @@ export namespace Prisma {
     categoriaId?: SortOrder
     videoUrl?: SortOrder
     descripcion?: SortOrder
+<<<<<<< HEAD
     fechaLanzamiento?: SortOrder
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoAvgOrderByAggregateInput = {
@@ -13469,7 +13722,10 @@ export namespace Prisma {
     categoriaId?: SortOrder
     videoUrl?: SortOrder
     descripcion?: SortOrder
+<<<<<<< HEAD
     fechaLanzamiento?: SortOrder
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoMinOrderByAggregateInput = {
@@ -13481,7 +13737,10 @@ export namespace Prisma {
     categoriaId?: SortOrder
     videoUrl?: SortOrder
     descripcion?: SortOrder
+<<<<<<< HEAD
     fechaLanzamiento?: SortOrder
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoSumOrderByAggregateInput = {
@@ -13506,6 +13765,7 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+<<<<<<< HEAD
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -13520,6 +13780,8 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+=======
+>>>>>>> origin/master
   export type JuegoScalarRelationFilter = {
     is?: JuegoWhereInput
     isNot?: JuegoWhereInput
@@ -13561,7 +13823,10 @@ export namespace Prisma {
     titulo?: SortOrder
     texto?: SortOrder
     activo?: SortOrder
+<<<<<<< HEAD
     imagen?: SortOrder
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaAvgOrderByAggregateInput = {
@@ -13573,7 +13838,10 @@ export namespace Prisma {
     titulo?: SortOrder
     texto?: SortOrder
     activo?: SortOrder
+<<<<<<< HEAD
     imagen?: SortOrder
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaMinOrderByAggregateInput = {
@@ -13581,7 +13849,10 @@ export namespace Prisma {
     titulo?: SortOrder
     texto?: SortOrder
     activo?: SortOrder
+<<<<<<< HEAD
     imagen?: SortOrder
+=======
+>>>>>>> origin/master
   }
 
   export type NoticiaSumOrderByAggregateInput = {
@@ -13729,6 +14000,7 @@ export namespace Prisma {
     usuarioId?: SortOrder
   }
 
+<<<<<<< HEAD
   export type ResenaCountOrderByAggregateInput = {
     id?: SortOrder
     juegoId?: SortOrder
@@ -13768,6 +14040,8 @@ export namespace Prisma {
     estrellas?: SortOrder
   }
 
+=======
+>>>>>>> origin/master
   export type CalificacionCreateNestedManyWithoutUsuarioInput = {
     create?: XOR<CalificacionCreateWithoutUsuarioInput, CalificacionUncheckedCreateWithoutUsuarioInput> | CalificacionCreateWithoutUsuarioInput[] | CalificacionUncheckedCreateWithoutUsuarioInput[]
     connectOrCreate?: CalificacionCreateOrConnectWithoutUsuarioInput | CalificacionCreateOrConnectWithoutUsuarioInput[]
@@ -13985,6 +14259,7 @@ export namespace Prisma {
     connect?: PlataformaWhereUniqueInput | PlataformaWhereUniqueInput[]
   }
 
+<<<<<<< HEAD
   export type ResenaCreateNestedManyWithoutJuegoInput = {
     create?: XOR<ResenaCreateWithoutJuegoInput, ResenaUncheckedCreateWithoutJuegoInput> | ResenaCreateWithoutJuegoInput[] | ResenaUncheckedCreateWithoutJuegoInput[]
     connectOrCreate?: ResenaCreateOrConnectWithoutJuegoInput | ResenaCreateOrConnectWithoutJuegoInput[]
@@ -13992,6 +14267,8 @@ export namespace Prisma {
     connect?: ResenaWhereUniqueInput | ResenaWhereUniqueInput[]
   }
 
+=======
+>>>>>>> origin/master
   export type CalificacionUncheckedCreateNestedManyWithoutJuegoInput = {
     create?: XOR<CalificacionCreateWithoutJuegoInput, CalificacionUncheckedCreateWithoutJuegoInput> | CalificacionCreateWithoutJuegoInput[] | CalificacionUncheckedCreateWithoutJuegoInput[]
     connectOrCreate?: CalificacionCreateOrConnectWithoutJuegoInput | CalificacionCreateOrConnectWithoutJuegoInput[]
@@ -14019,6 +14296,7 @@ export namespace Prisma {
     connect?: PlataformaWhereUniqueInput | PlataformaWhereUniqueInput[]
   }
 
+<<<<<<< HEAD
   export type ResenaUncheckedCreateNestedManyWithoutJuegoInput = {
     create?: XOR<ResenaCreateWithoutJuegoInput, ResenaUncheckedCreateWithoutJuegoInput> | ResenaCreateWithoutJuegoInput[] | ResenaUncheckedCreateWithoutJuegoInput[]
     connectOrCreate?: ResenaCreateOrConnectWithoutJuegoInput | ResenaCreateOrConnectWithoutJuegoInput[]
@@ -14026,6 +14304,8 @@ export namespace Prisma {
     connect?: ResenaWhereUniqueInput | ResenaWhereUniqueInput[]
   }
 
+=======
+>>>>>>> origin/master
   export type DecimalFieldUpdateOperationsInput = {
     set?: Decimal | DecimalJsLike | number | string
     increment?: Decimal | DecimalJsLike | number | string
@@ -14034,10 +14314,13 @@ export namespace Prisma {
     divide?: Decimal | DecimalJsLike | number | string
   }
 
+<<<<<<< HEAD
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
 
+=======
+>>>>>>> origin/master
   export type CalificacionUpdateManyWithoutJuegoNestedInput = {
     create?: XOR<CalificacionCreateWithoutJuegoInput, CalificacionUncheckedCreateWithoutJuegoInput> | CalificacionCreateWithoutJuegoInput[] | CalificacionUncheckedCreateWithoutJuegoInput[]
     connectOrCreate?: CalificacionCreateOrConnectWithoutJuegoInput | CalificacionCreateOrConnectWithoutJuegoInput[]
@@ -14101,6 +14384,7 @@ export namespace Prisma {
     deleteMany?: PlataformaScalarWhereInput | PlataformaScalarWhereInput[]
   }
 
+<<<<<<< HEAD
   export type ResenaUpdateManyWithoutJuegoNestedInput = {
     create?: XOR<ResenaCreateWithoutJuegoInput, ResenaUncheckedCreateWithoutJuegoInput> | ResenaCreateWithoutJuegoInput[] | ResenaUncheckedCreateWithoutJuegoInput[]
     connectOrCreate?: ResenaCreateOrConnectWithoutJuegoInput | ResenaCreateOrConnectWithoutJuegoInput[]
@@ -14115,6 +14399,8 @@ export namespace Prisma {
     deleteMany?: ResenaScalarWhereInput | ResenaScalarWhereInput[]
   }
 
+=======
+>>>>>>> origin/master
   export type CalificacionUncheckedUpdateManyWithoutJuegoNestedInput = {
     create?: XOR<CalificacionCreateWithoutJuegoInput, CalificacionUncheckedCreateWithoutJuegoInput> | CalificacionCreateWithoutJuegoInput[] | CalificacionUncheckedCreateWithoutJuegoInput[]
     connectOrCreate?: CalificacionCreateOrConnectWithoutJuegoInput | CalificacionCreateOrConnectWithoutJuegoInput[]
@@ -14170,6 +14456,7 @@ export namespace Prisma {
     deleteMany?: PlataformaScalarWhereInput | PlataformaScalarWhereInput[]
   }
 
+<<<<<<< HEAD
   export type ResenaUncheckedUpdateManyWithoutJuegoNestedInput = {
     create?: XOR<ResenaCreateWithoutJuegoInput, ResenaUncheckedCreateWithoutJuegoInput> | ResenaCreateWithoutJuegoInput[] | ResenaUncheckedCreateWithoutJuegoInput[]
     connectOrCreate?: ResenaCreateOrConnectWithoutJuegoInput | ResenaCreateOrConnectWithoutJuegoInput[]
@@ -14184,6 +14471,8 @@ export namespace Prisma {
     deleteMany?: ResenaScalarWhereInput | ResenaScalarWhereInput[]
   }
 
+=======
+>>>>>>> origin/master
   export type JuegoCreateNestedOneWithoutImagenesInput = {
     create?: XOR<JuegoCreateWithoutImagenesInput, JuegoUncheckedCreateWithoutImagenesInput>
     connectOrCreate?: JuegoCreateOrConnectWithoutImagenesInput
@@ -14274,6 +14563,7 @@ export namespace Prisma {
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutCalificacionesInput, UsuarioUpdateWithoutCalificacionesInput>, UsuarioUncheckedUpdateWithoutCalificacionesInput>
   }
 
+<<<<<<< HEAD
   export type JuegoCreateNestedOneWithoutResenaInput = {
     create?: XOR<JuegoCreateWithoutResenaInput, JuegoUncheckedCreateWithoutResenaInput>
     connectOrCreate?: JuegoCreateOrConnectWithoutResenaInput
@@ -14288,6 +14578,8 @@ export namespace Prisma {
     update?: XOR<XOR<JuegoUpdateToOneWithWhereWithoutResenaInput, JuegoUpdateWithoutResenaInput>, JuegoUncheckedUpdateWithoutResenaInput>
   }
 
+=======
+>>>>>>> origin/master
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -14423,6 +14715,7 @@ export namespace Prisma {
     not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
+<<<<<<< HEAD
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -14434,6 +14727,8 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+=======
+>>>>>>> origin/master
   export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
@@ -14450,6 +14745,7 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+<<<<<<< HEAD
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -14464,6 +14760,8 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+=======
+>>>>>>> origin/master
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -14626,12 +14924,18 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
+<<<<<<< HEAD
     Resena?: ResenaCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedCreateWithoutPlataformasInput = {
@@ -14643,11 +14947,17 @@ export namespace Prisma {
     categoriaId: number
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
     Resena?: ResenaUncheckedCreateNestedManyWithoutJuegoInput
+=======
+    calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
+    imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
+    ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
+>>>>>>> origin/master
   }
 
   export type JuegoCreateOrConnectWithoutPlataformasInput = {
@@ -14683,7 +14993,10 @@ export namespace Prisma {
     categoriaId?: IntFilter<"Juego"> | number
     videoUrl?: StringNullableFilter<"Juego"> | string | null
     descripcion?: StringNullableFilter<"Juego"> | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: DateTimeNullableFilter<"Juego"> | Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoCreateWithoutCategoriaInput = {
@@ -14693,12 +15006,18 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaCreateNestedManyWithoutJuegosInput
+<<<<<<< HEAD
     Resena?: ResenaCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedCreateWithoutCategoriaInput = {
@@ -14709,12 +15028,18 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
+<<<<<<< HEAD
     Resena?: ResenaUncheckedCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoCreateOrConnectWithoutCategoriaInput = {
@@ -14840,6 +15165,7 @@ export namespace Prisma {
     create: XOR<PlataformaCreateWithoutJuegosInput, PlataformaUncheckedCreateWithoutJuegosInput>
   }
 
+<<<<<<< HEAD
   export type ResenaCreateWithoutJuegoInput = {
     nombre: string
     comentario: string
@@ -14865,6 +15191,8 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+=======
+>>>>>>> origin/master
   export type CalificacionUpsertWithWhereUniqueWithoutJuegoInput = {
     where: CalificacionWhereUniqueInput
     update: XOR<CalificacionUpdateWithoutJuegoInput, CalificacionUncheckedUpdateWithoutJuegoInput>
@@ -14967,6 +15295,7 @@ export namespace Prisma {
     nombre?: StringFilter<"Plataforma"> | string
   }
 
+<<<<<<< HEAD
   export type ResenaUpsertWithWhereUniqueWithoutJuegoInput = {
     where: ResenaWhereUniqueInput
     update: XOR<ResenaUpdateWithoutJuegoInput, ResenaUncheckedUpdateWithoutJuegoInput>
@@ -14995,6 +15324,8 @@ export namespace Prisma {
     fecha?: DateTimeFilter<"Resena"> | Date | string
   }
 
+=======
+>>>>>>> origin/master
   export type JuegoCreateWithoutImagenesInput = {
     nombre: string
     precio: Decimal | DecimalJsLike | number | string
@@ -15002,12 +15333,18 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaCreateNestedManyWithoutJuegosInput
+<<<<<<< HEAD
     Resena?: ResenaCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedCreateWithoutImagenesInput = {
@@ -15019,11 +15356,17 @@ export namespace Prisma {
     categoriaId: number
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
     Resena?: ResenaUncheckedCreateNestedManyWithoutJuegoInput
+=======
+    calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
+    ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
+    plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
+>>>>>>> origin/master
   }
 
   export type JuegoCreateOrConnectWithoutImagenesInput = {
@@ -15049,12 +15392,18 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUpdateManyWithoutJuegosNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateWithoutImagenesInput = {
@@ -15066,11 +15415,17 @@ export namespace Prisma {
     categoriaId?: IntFieldUpdateOperationsInput | number
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
     Resena?: ResenaUncheckedUpdateManyWithoutJuegoNestedInput
+=======
+    calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
+    ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
+    plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
+>>>>>>> origin/master
   }
 
   export type JuegoCreateWithoutVentasInput = {
@@ -15080,12 +15435,18 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
     plataformas?: PlataformaCreateNestedManyWithoutJuegosInput
+<<<<<<< HEAD
     Resena?: ResenaCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedCreateWithoutVentasInput = {
@@ -15097,11 +15458,17 @@ export namespace Prisma {
     categoriaId: number
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
     Resena?: ResenaUncheckedCreateNestedManyWithoutJuegoInput
+=======
+    calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
+    imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
+    plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
+>>>>>>> origin/master
   }
 
   export type JuegoCreateOrConnectWithoutVentasInput = {
@@ -15153,12 +15520,18 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
     plataformas?: PlataformaUpdateManyWithoutJuegosNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateWithoutVentasInput = {
@@ -15170,11 +15543,17 @@ export namespace Prisma {
     categoriaId?: IntFieldUpdateOperationsInput | number
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
     Resena?: ResenaUncheckedUpdateManyWithoutJuegoNestedInput
+=======
+    calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
+    imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
+    plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
+>>>>>>> origin/master
   }
 
   export type UsuarioUpsertWithoutVentasInput = {
@@ -15216,12 +15595,18 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
     ventas?: VentaCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaCreateNestedManyWithoutJuegosInput
+<<<<<<< HEAD
     Resena?: ResenaCreateNestedManyWithoutJuegoInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedCreateWithoutCalificacionesInput = {
@@ -15233,11 +15618,17 @@ export namespace Prisma {
     categoriaId: number
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
     plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
     Resena?: ResenaUncheckedCreateNestedManyWithoutJuegoInput
+=======
+    imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
+    ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
+    plataformas?: PlataformaUncheckedCreateNestedManyWithoutJuegosInput
+>>>>>>> origin/master
   }
 
   export type JuegoCreateOrConnectWithoutCalificacionesInput = {
@@ -15289,12 +15680,18 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUpdateManyWithoutJuegosNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateWithoutCalificacionesInput = {
@@ -15306,11 +15703,17 @@ export namespace Prisma {
     categoriaId?: IntFieldUpdateOperationsInput | number
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
     Resena?: ResenaUncheckedUpdateManyWithoutJuegoNestedInput
+=======
+    imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
+    ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
+    plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
+>>>>>>> origin/master
   }
 
   export type UsuarioUpsertWithoutCalificacionesInput = {
@@ -15345,6 +15748,7 @@ export namespace Prisma {
     ventas?: VentaUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
+<<<<<<< HEAD
   export type JuegoCreateWithoutResenaInput = {
     nombre: string
     precio: Decimal | DecimalJsLike | number | string
@@ -15423,6 +15827,8 @@ export namespace Prisma {
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
   }
 
+=======
+>>>>>>> origin/master
   export type CalificacionCreateManyUsuarioInput = {
     id?: number
     valoracion: number
@@ -15488,12 +15894,18 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateWithoutPlataformasInput = {
@@ -15505,11 +15917,17 @@ export namespace Prisma {
     categoriaId?: IntFieldUpdateOperationsInput | number
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
     Resena?: ResenaUncheckedUpdateManyWithoutJuegoNestedInput
+=======
+    calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
+    imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
+    ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateManyWithoutPlataformasInput = {
@@ -15521,7 +15939,10 @@ export namespace Prisma {
     categoriaId?: IntFieldUpdateOperationsInput | number
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoCreateManyCategoriaInput = {
@@ -15532,7 +15953,10 @@ export namespace Prisma {
     estado: boolean
     videoUrl?: string | null
     descripcion?: string | null
+<<<<<<< HEAD
     fechaLanzamiento?: Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUpdateWithoutCategoriaInput = {
@@ -15542,12 +15966,18 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUpdateManyWithoutJuegosNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateWithoutCategoriaInput = {
@@ -15558,12 +15988,18 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput
     plataformas?: PlataformaUncheckedUpdateManyWithoutJuegosNestedInput
+<<<<<<< HEAD
     Resena?: ResenaUncheckedUpdateManyWithoutJuegoNestedInput
+=======
+>>>>>>> origin/master
   }
 
   export type JuegoUncheckedUpdateManyWithoutCategoriaInput = {
@@ -15574,7 +16010,10 @@ export namespace Prisma {
     estado?: BoolFieldUpdateOperationsInput | boolean
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+<<<<<<< HEAD
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+=======
+>>>>>>> origin/master
   }
 
   export type CalificacionCreateManyJuegoInput = {
@@ -15598,6 +16037,7 @@ export namespace Prisma {
     montoPagado: Decimal | DecimalJsLike | number | string
   }
 
+<<<<<<< HEAD
   export type ResenaCreateManyJuegoInput = {
     id?: number
     nombre: string
@@ -15606,6 +16046,8 @@ export namespace Prisma {
     fecha?: Date | string
   }
 
+=======
+>>>>>>> origin/master
   export type CalificacionUpdateWithoutJuegoInput = {
     valoracion?: IntFieldUpdateOperationsInput | number
     comentario?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15680,6 +16122,7 @@ export namespace Prisma {
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
+<<<<<<< HEAD
   export type ResenaUpdateWithoutJuegoInput = {
     nombre?: StringFieldUpdateOperationsInput | string
     comentario?: StringFieldUpdateOperationsInput | string
@@ -15703,6 +16146,8 @@ export namespace Prisma {
     fecha?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+=======
+>>>>>>> origin/master
 
 
   /**

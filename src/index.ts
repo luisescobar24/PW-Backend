@@ -9,7 +9,6 @@ import cloudinary from 'cloudinary';
 import multer from 'multer';
 import fs from 'fs';
 
-
 dotenv.config();  // Cargar las variables de entorno desde .env
 
 // Configuración global de Cloudinary (asegúrate de tener las variables en tu .env o usa estas configuraciones directamente)

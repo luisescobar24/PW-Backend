@@ -148,8 +148,12 @@ exports.Prisma.JuegoScalarFieldEnum = {
   estado: 'estado',
   categoriaId: 'categoriaId',
   videoUrl: 'videoUrl',
+<<<<<<< HEAD
   descripcion: 'descripcion',
   fechaLanzamiento: 'fechaLanzamiento'
+=======
+  descripcion: 'descripcion'
+>>>>>>> origin/master
 };
 
 exports.Prisma.ImagenScalarFieldEnum = {
@@ -163,8 +167,12 @@ exports.Prisma.NoticiaScalarFieldEnum = {
   id: 'id',
   titulo: 'titulo',
   texto: 'texto',
+<<<<<<< HEAD
   activo: 'activo',
   imagen: 'imagen'
+=======
+  activo: 'activo'
+>>>>>>> origin/master
 };
 
 exports.Prisma.VentaScalarFieldEnum = {
@@ -184,6 +192,7 @@ exports.Prisma.CalificacionScalarFieldEnum = {
   usuarioId: 'usuarioId'
 };
 
+<<<<<<< HEAD
 exports.Prisma.ResenaScalarFieldEnum = {
   id: 'id',
   juegoId: 'juegoId',
@@ -193,6 +202,8 @@ exports.Prisma.ResenaScalarFieldEnum = {
   fecha: 'fecha'
 };
 
+=======
+>>>>>>> origin/master
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -217,8 +228,12 @@ exports.Prisma.ModelName = {
   Imagen: 'Imagen',
   Noticia: 'Noticia',
   Venta: 'Venta',
+<<<<<<< HEAD
   Calificacion: 'Calificacion',
   Resena: 'Resena'
+=======
+  Calificacion: 'Calificacion'
+>>>>>>> origin/master
 };
 
 /**
