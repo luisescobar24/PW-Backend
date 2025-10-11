@@ -15353,7 +15353,6 @@ export namespace Prisma {
     fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenCreateNestedManyWithoutJuegoInput
     categoria: CategoriaCreateNestedOneWithoutJuegosInput
@@ -15371,7 +15370,6 @@ export namespace Prisma {
     fechaLanzamiento?: Date | string | null
     videoUrl?: string | null
     descripcion?: string | null
-    fechaLanzamiento?: Date | string | null
     calificaciones?: CalificacionUncheckedCreateNestedManyWithoutJuegoInput
     imagenes?: ImagenUncheckedCreateNestedManyWithoutJuegoInput
     ventas?: VentaUncheckedCreateNestedManyWithoutJuegoInput
@@ -15402,7 +15400,6 @@ export namespace Prisma {
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUpdateManyWithoutJuegoNestedInput
     categoria?: CategoriaUpdateOneRequiredWithoutJuegosNestedInput
@@ -15420,7 +15417,6 @@ export namespace Prisma {
     fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    fechaLanzamiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calificaciones?: CalificacionUncheckedUpdateManyWithoutJuegoNestedInput
     imagenes?: ImagenUncheckedUpdateManyWithoutJuegoNestedInput
     ventas?: VentaUncheckedUpdateManyWithoutJuegoNestedInput

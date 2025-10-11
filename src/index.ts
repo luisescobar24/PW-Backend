@@ -200,10 +200,10 @@ app.post('/api/auth/signup', async (req: Request, res: Response) => {
 
   try {
     // Verificar si el correo ya está registrado
-    const existingUserByEmail = await prisma.usuario.findUnique({ where: { correo } });
+    /* const existingUserByEmail = await prisma.usuario.findUnique({ where: { correo } });
     if (existingUserByEmail) {
       return res.status(400).json({ message: 'El correo electrónico ya está registrado' });
-    }
+    } */
 
     // Verificar si el nombre ya está registrado
     const existingUserByName = await prisma.usuario.findFirst({ where: { nombre } });
