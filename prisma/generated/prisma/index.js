@@ -204,7 +204,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Bruno Tupia Canales\\Desktop\\PROGRA DEFINITIVO\\PW\\backend\\prisma\\generated\\prisma",
+      "value": "D:\\BackDevop\\PW-Backend\\prisma\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -218,12 +218,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Bruno Tupia Canales\\Desktop\\PROGRA DEFINITIVO\\PW\\backend\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\BackDevop\\PW-Backend\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../..",
   "clientVersion": "6.11.1",
